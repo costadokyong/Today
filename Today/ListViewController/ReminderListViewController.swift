@@ -17,6 +17,17 @@ class ReminderListViewController: UICollectionViewController {
         
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
+        
+        let addButton = UIBarButtonItem(
+            barButtonSystemItem: .add, target: self, action: #selector(didPressAddButton(_:))
+        )
+        addButton.accessibilityLabel = NSLocalizedString("Add Remider", comment: "Add button accessibility label")
+        navigationItem.rightBarButtonItem = addButton
+        
+        if #available(iOS 16,*){
+            navigationItem.style = .navigator
+        }
+        
         updateSnapshot()
         collectionView.dataSource = dataSource
     }

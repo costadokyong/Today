@@ -92,5 +92,9 @@ extension ReminderListViewController {
         updateSnapshot(realoading: [id])
         
     }
+    
+    func addReminder(_ reminder: Reminder){
+        reminders.append(reminder)
+    }
 }
 
